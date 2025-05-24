@@ -1,0 +1,370 @@
+/* Custom CSS for PreProPy documentation */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Code highlighting */
+pre code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Custom link underline animation */
+a.animated-underline {
+    position: relative;
+    text-decoration: none;
+}
+
+a.animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+a.animated-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Code blocks with line numbers */
+.code-with-line-numbers {
+    counter-reset: line;
+    padding-left: 3rem !important;
+    position: relative;
+    overflow-x: auto;
+}
+
+.code-with-line-numbers code {
+    counter-increment: line;
+}
+
+.code-with-line-numbers code::before {
+    content: counter(line);
+    display: inline-block;
+    width: 2rem;
+    margin-left: -3rem;
+    padding-right: 0.5rem;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.6);
+    user-select: none;
+}
+
+/* Card hover effects */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .hover-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #3b82f6, #6366f1);
+}
+
+.dark .gradient-text {
+    background-image: linear-gradient(to right, #60a5fa, #818cf8);
+}
+
+/* Code highlighting */
+.hljs-keyword {
+    color: #8250df;
+}
+
+.dark .hljs-keyword {
+    color: #c792ea;
+}
+
+.hljs-string {
+    color: #0a7aca;
+}
+
+.dark .hljs-string {
+    color: #89ddff;
+}
+
+.hljs-comment {
+    color: #6e7781;
+    font-style: italic;
+}
+
+.dark .hljs-comment {
+    color: #637777;
+}
+
+/* Sticky sidebar (for larger documentation pages) */
+.sticky-sidebar {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+}
+
+/* Example box styling */
+.example-box {
+    background-color: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0.375rem;
+}
+
+.dark .example-box {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid #3b82f6;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 0.375rem;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Custom badge */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-blue {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.dark .badge-blue {
+    background-color: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+}
+
+.badge-purple {
+    background-color: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+}
+
+.dark .badge-purple {
+    background-color: rgba(167, 139, 250, 0.2);
+    color: #a78bfa;
+}
+
+.badge-green {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.dark .badge-green {
+    background-color: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+}
+
+/* Responsive navbar animation */
+@media (max-width: 768px) {
+    .mobile-menu-slide {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+    
+    .mobile-menu-slide.active {
+        max-height: 300px;
+    }
+}
+
+/* Focus styles for better accessibility */
+a:focus, button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.dark a:focus, .dark button:focus {
+    outline-color: #60a5fa;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background-color: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    pre, code {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+    
+    table {
+        border-collapse: collapse;
+    }
+    
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+/* Better tables */
+.custom-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.custom-table th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+.custom-table td {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.dark .custom-table th {
+    background-color: #334155;
+}
+
+.dark .custom-table td {
+    border-top: 1px solid #475569;
+}
+
+.custom-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+.dark .custom-table tr:hover td {
+    background-color: #1e293b;
+}
+
+/* Quote styling */
+blockquote {
+    border-left: 4px solid #e2e8f0;
+    padding-left: 1rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.dark blockquote {
+    border-left-color: #475569;
+    color: #94a3b8;
+}

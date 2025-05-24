@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blue-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="purple-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="green-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="connection-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    
+    <!-- Filter for shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.2" />
+    </filter>
+  </defs>
+
+  <!-- Main Container Box -->
+  <rect x="100" y="50" width="600" height="400" rx="15" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)" />
+  <text x="400" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1e293b">PreProPy Architecture</text>
+  
+  <!-- Input Data Box -->
+  <rect x="150" y="130" width="120" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" />
+  <text x="210" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#475569">Raw Data</text>
+  <path d="M180 155 L185 155 L185 165 L195 165 L195 155 L200 155 L190 145 L180 155Z" fill="#64748b" />
+  <rect x="175" y="170" width="30" height="5" fill="#64748b" />
+  <rect x="175" y="180" width="20" height="5" fill="#64748b" />
+  
+  <!-- Central Pipeline -->
+  <rect x="320" y="200" width="160" height="100" rx="10" fill="#f8fafc" stroke="#3b82f6" stroke-width="3" stroke-dasharray="5,5" />
+  <text x="400" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">PreProPy</text>
+  <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Data Preprocessing</text>
+  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Pipeline</text>
+  
+  <!-- Component Modules -->
+  <g transform="translate(220, 350)">
+    <!-- NullSense -->
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="url(#blue-gradient)" filter="url(#shadow)" />
+    <text x="50" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">NullSense</text>
+    <text x="50" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Missing Values</text>
+  </g>
+  
+  <g transform="translate(350, 350)">
+    <!-- DupliChecker -->
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="url(#purple-gradient)" filter="url(#shadow)" />
+    <text x="50" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">DupliChecker</text>
+    <text x="50" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Duplicates</text>
+  </g>
+  
+  <g transform="translate(480, 350)">
+    <!-- ScaleNPipe -->
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="url(#green-gradient)" filter="url(#shadow)" />
+    <text x="50" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ScaleNPipe</text>
+    <text x="50" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Feature Scaling</text>
+  </g>
+  
+  <!-- Output Data Box -->
+  <rect x="530" y="130" width="120" height="80" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" />
+  <text x="590" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#475569">Clean Data</text>
+  <path d="M565 160 L575 160 L575 170 L585 170 L585 160 L595 160 L580 145 L565 160 Z" fill="#10b981" />
+  <rect x="570" y="175" width="30" height="5" fill="#10b981" />
+  <rect x="570" y="185" width="20" height="5" fill="#10b981" />
+  
+  <!-- Connections -->
+  <!-- Raw Data to Pipeline -->
+  <path d="M270 170 Q 295 170 320 200" stroke="url(#connection-gradient)" stroke-width="3" fill="none" stroke-linecap="round" />
+  <circle cx="270" cy="170" r="4" fill="#6366f1" />
+  
+  <!-- Pipeline to Clean Data -->
+  <path d="M480 250 Q 505 250 530 170" stroke="url(#connection-gradient)" stroke-width="3" fill="none" stroke-linecap="round" />
+  <circle cx="530" cy="170" r="4" fill="#8b5cf6" />
+  
+  <!-- Pipeline to Components -->
+  <line x1="400" y1="300" x2="400" y2="330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" />
+  <path d="M270 350 L270 330 L530 330 L530 350" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" fill="none" />
+  
+  <!-- Command Line Interface -->
+  <rect x="150" y="230" width="120" height="50" rx="8" fill="#1e293b" filter="url(#shadow)" />
+  <text x="210" y="260" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="white">CLI Interface</text>
+  <path d="M290 255 L320 255" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" />
+  <polygon points="316,251 324,255 316,259" fill="#94a3b8" />
+</svg>
