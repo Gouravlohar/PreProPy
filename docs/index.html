@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PreProPy Documentation</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Custom Styling -->    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Header with Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                    <span class="text-white font-semibold">P</span>
+                </div>
+                <span class="text-xl font-bold text-gray-800 dark:text-white">PreProPy</span>
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:block">
+                    <ul class="flex gap-6">
+                        <li><a href="#overview" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition">Overview</a></li>
+                        <li><a href="#installation" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition">Installation</a></li>
+                        <li><a href="#features" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition">Features</a></li>
+                        <li><a href="#documentation" class="font-medium hover:text-primary-600 dark:hover:text-primary-400 transition">Documentation</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/yourusername/prepropy" target="_blank" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <button id="theme-toggle" class="p-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fa-solid fa-sun hidden dark:inline-block text-amber-300"></i>
+                        <i class="fa-solid fa-moon inline-block dark:hidden text-indigo-600"></i>
+                    </button>
+                    
+                    <button class="md:hidden bg-gray-200 dark:bg-gray-800 p-2 rounded-lg" id="mobile-menu-button">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+            <nav>
+                <ul class="flex flex-col gap-3">
+                    <li><a href="#overview" class="block py-2 font-medium hover:text-primary-600 dark:hover:text-primary-400">Overview</a></li>
+                    <li><a href="#installation" class="block py-2 font-medium hover:text-primary-600 dark:hover:text-primary-400">Installation</a></li>
+                    <li><a href="#features" class="block py-2 font-medium hover:text-primary-600 dark:hover:text-primary-400">Features</a></li>
+                    <li><a href="#documentation" class="block py-2 font-medium hover:text-primary-600 dark:hover:text-primary-400">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 inline-block text-transparent bg-clip-text">
+                PreProPy
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300">
+                A comprehensive data preprocessing toolkit for Python
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#installation" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition">
+                    Get Started
+                </a>
+                <a href="https://github.com/yourusername/prepropy" target="_blank" class="px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 font-medium rounded-lg shadow-lg hover:shadow-xl transition">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+            
+            <div class="mt-16 relative">
+                <div class="p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700">
+                    <pre class="font-mono text-sm md:text-base text-left overflow-x-auto p-4 bg-gray-50 dark:bg-gray-900 rounded-xl">
+<span class="text-blue-600 dark:text-blue-400">import</span> pandas <span class="text-blue-600 dark:text-blue-400">as</span> pd
+<span class="text-blue-600 dark:text-blue-400">from</span> prepropy <span class="text-blue-600 dark:text-blue-400">import</span> handle_nulls, drop_duplicates, scale_pipeline
+
+<span class="text-green-600 dark:text-green-400"># Load data with missing values</span>
+df = pd.read_csv(<span class="text-amber-600 dark:text-amber-400">'sample_data.csv'</span>)
+
+<span class="text-green-600 dark:text-green-400"># Handle missing values intelligently</span>
+df_clean = handle_nulls(df, strategy=<span class="text-amber-600 dark:text-amber-400">"auto"</span>)
+
+<span class="text-green-600 dark:text-green-400"># Remove duplicate records</span>
+df_unique = drop_duplicates(df_clean)
+
+<span class="text-green-600 dark:text-green-400"># Data preprocessing complete!</span></pre>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-br from-blue-300 to-indigo-400 dark:from-blue-600 dark:to-indigo-700 rounded-2xl -z-10 blur-lg opacity-60"></div>
+                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-indigo-300 to-purple-400 dark:from-indigo-600 dark:to-purple-700 rounded-2xl -z-10 blur-lg opacity-60"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16 max-w-5xl">
+          <!-- Overview Section -->
+        <section id="overview" class="mb-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                    <i class="fas fa-info-circle text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold">Overview</h2>
+            </div>
+            
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <p>
+                    PreProPy is a comprehensive data preprocessing toolkit designed to streamline your data science workflow. It combines three powerful tools:
+                </p>
+                
+                <!-- Architecture Diagram -->
+                <div class="my-10 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">Architecture</h3>
+                    <div class="flex justify-center">
+                        <img src="images/architecture-diagram.svg" alt="PreProPy Architecture Diagram" class="max-w-full h-auto" />
+                    </div>
+                </div>
+                
+                <ul class="grid gap-6 mt-8 md:grid-cols-3">
+                    <li class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                                <i class="fas fa-puzzle-piece text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">NullSense</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Intelligent handling of missing values based on column types.</p>
+                    </li>
+                    <li class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="h-10 w-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
+                                <i class="fas fa-search text-indigo-600 dark:text-indigo-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">DupliChecker</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Duplicate record detection and removal with configurable options.</p>
+                    </li>
+                    <li class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="h-10 w-10 rounded-lg bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center">
+                                <i class="fas fa-balance-scale text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">ScaleNPipe</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Feature scaling and model pipeline creation for machine learning workflows.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="mb-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                    <i class="fas fa-download text-indigo-600 dark:text-indigo-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold">Installation</h2>
+            </div>
+            
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <p>
+                    PreProPy can be easily installed using pip, Python's package manager:
+                </p>
+                
+                <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto mb-6">
+                    <pre class="language-bash"><code>pip install prepropy</code></pre>
+                </div>
+                
+                <p>
+                    The package has the following dependencies:
+                </p>
+                
+                <ul>
+                    <li>Python 3.7+</li>
+                    <li>pandas >= 1.0.0</li>
+                    <li>scikit-learn >= 0.24.0</li>
+                </ul>
+                
+                <p>
+                    For development, you can install additional dependencies:
+                </p>
+                
+                <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto">
+                    <pre class="language-bash"><code>pip install prepropy[dev]</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="mb-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                    <i class="fas fa-star text-purple-600 dark:text-purple-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold">Features</h2>
+            </div>
+            
+            <!-- NullSense -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-puzzle-piece text-blue-600 dark:text-blue-400"></i>
+                    NullSense
+                </h3>
+                
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="mb-6 text-lg">
+                        NullSense intelligently handles missing values in your data based on column types:
+                    </p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto mb-6">
+                        <pre class="language-python"><code>import pandas as pd
+from prepropy import handle_nulls
+
+# Create a sample dataframe with missing values
+df = pd.DataFrame({
+    'numeric': [1, 2, None, 4, 5],
+    'categorical': ['A', 'B', None, 'B', 'C']
+})
+
+# Fill missing values with intelligent defaults
+df_filled = handle_nulls(df, strategy="auto")
+# Numeric columns filled with median, categorical with mode
+
+# Other available strategies
+df_mean = handle_nulls(df, strategy="mean")  # Fill numeric with mean
+df_median = handle_nulls(df, strategy="median")  # Fill numeric with median
+df_mode = handle_nulls(df, strategy="mode")  # Fill all columns with mode
+df_zero = handle_nulls(df, strategy="zero")  # Fill numeric with 0, categorical with ""
+
+# Fill only specific columns
+df_specific = handle_nulls(df, strategy="median", columns=["age"])</code></pre>
+                    </div>
+                    
+                    <div class="grid gap-6 lg:grid-cols-5">
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Auto Strategy</div>
+                            <p class="text-sm">Numeric: median<br>Categorical: mode</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Mean Strategy</div>
+                            <p class="text-sm">Numeric: mean<br>Categorical: unchanged</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Median Strategy</div>
+                            <p class="text-sm">Numeric: median<br>Categorical: unchanged</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Mode Strategy</div>
+                            <p class="text-sm">All columns: mode</p>
+                        </div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Zero Strategy</div>
+                            <p class="text-sm">Numeric: 0<br>Categorical: empty string</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DupliChecker -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-search text-indigo-600 dark:text-indigo-400"></i>
+                    DupliChecker
+                </h3>
+                
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="mb-6 text-lg">
+                        DupliChecker identifies and removes duplicate records with configurable options:
+                    </p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto mb-6">
+                        <pre class="language-python"><code>import pandas as pd
+from prepropy import drop_duplicates, get_duplicate_stats
+
+# Create a sample dataframe with duplicates
+df = pd.DataFrame({
+    'A': [1, 2, 2, 3, 3],
+    'B': ['x', 'y', 'y', 'z', 'z']
+})
+
+# Get duplicate statistics
+stats = get_duplicate_stats(df)
+print(stats)
+# Output: {'duplicate_count': 2, 'duplicate_percent': 40.0, 'unique_count': 3, 'total_count': 5}
+
+# Drop duplicates (keeping first occurrence)
+df_unique = drop_duplicates(df)
+
+# Drop duplicates based on specific columns
+df_unique_subset = drop_duplicates(df, subset=['B'])
+
+# Keep the last occurrence instead of first
+df_unique_last = drop_duplicates(df, keep='last')
+
+# Drop all duplicates
+df_no_dups = drop_duplicates(df, keep=False)</code></pre>
+                    </div>
+                    
+                    <div class="grid gap-6 lg:grid-cols-3">
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Configurable Retention</div>
+                            <p class="text-sm">Keep first occurrence (default), last occurrence, or no duplicates</p>
+                        </div>
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Column Subsetting</div>
+                            <p class="text-sm">Consider only specific columns for determining duplicates</p>
+                        </div>
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">Detailed Statistics</div>
+                            <p class="text-sm">Get counts and percentages of duplicates in your dataset</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ScaleNPipe -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-balance-scale text-purple-600 dark:text-purple-400"></i>
+                    ScaleNPipe
+                </h3>
+                
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="mb-6 text-lg">
+                        ScaleNPipe creates scikit-learn pipelines with feature scaling and your model:
+                    </p>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto mb-6">
+                        <pre class="language-python"><code>from sklearn.linear_model import LogisticRegression
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from prepropy import scale_pipeline, get_available_scalers
+
+# Load sample data
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Create a model
+model = LogisticRegression()
+
+# Create a pipeline with standard scaling
+pipeline = scale_pipeline(model, scaler="standard")
+
+# Train the pipeline
+pipeline.fit(X_train, y_train)
+
+# Make predictions
+predictions = pipeline.predict(X_test)
+
+# See available scalers
+scalers = get_available_scalers()
+print(scalers)</code></pre>
+                    </div>
+                    
+                    <div class="grid gap-6 lg:grid-cols-3">
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">StandardScaler</div>
+                            <p class="text-sm">Standardizes features by removing the mean and scaling to unit variance</p>
+                        </div>
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">MinMaxScaler</div>
+                            <p class="text-sm">Scales features to a given range, default 0-1</p>
+                        </div>
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                            <div class="font-semibold mb-2">RobustScaler</div>
+                            <p class="text-sm">Scale features using statistics that are robust to outliers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="documentation" class="mb-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                    <i class="fas fa-book text-blue-600 dark:text-blue-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold">Documentation</h2>
+            </div>
+
+            <!-- API Reference -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 mb-8">
+                <h3 class="text-2xl font-bold mb-6">API Reference</h3>
+                
+                <!-- Tabs Navigation -->
+                <div class="border-b border-gray-200 dark:border-gray-700 mb-8">
+                    <ul class="flex -mb-px" id="api-tabs" role="tablist">
+                        <li class="mr-2">
+                            <button class="api-tab-button py-3 px-4 border-b-2 border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 font-medium" data-tab="nullsense">
+                                NullSense
+                            </button>
+                        </li>
+                        <li class="mr-2">
+                            <button class="api-tab-button py-3 px-4 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300 font-medium" data-tab="duplichecker">
+                                DupliChecker
+                            </button>
+                        </li>
+                        <li>
+                            <button class="api-tab-button py-3 px-4 border-b-2 border-transparent hover:border-gray-300 hover:text-gray-600 dark:hover:text-gray-300 font-medium" data-tab="scalenpipe">
+                                ScaleNPipe
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Tab Content -->
+                <div>
+                    <!-- NullSense Tab -->
+                    <div class="api-tab-content block" id="nullsense-tab">
+                        <h4 class="text-xl font-bold mb-4">handle_nulls(df, strategy="auto", columns=None)</h4>
+                        <p class="mb-4">Intelligently fills missing values based on column data types.</p>
+                        
+                        <h5 class="font-bold mt-6 mb-2">Parameters:</h5>
+                        <ul class="mb-6 space-y-4">
+                            <li>
+                                <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">df : pandas.DataFrame</code>
+                                <div class="mt-1">The DataFrame containing missing values to fill.</div>
+                            </li>
+                            <li>
+                                <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">strategy : str, default="auto"</code>
+                                <div class="mt-1">Strategy to use for filling missing values:</div>
+                                <ul class="list-disc pl-6 mt-2 space-y-1">
+                                    <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">"auto"</code>: Use median for numeric columns and mode for categorical</li>
+                                    <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">"mean"</code>: Use mean for numeric columns</li>
+                                    <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">"median"</code>: Use median for numeric columns</li>
+                                    <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">"mode"</code>: Use mode for all columns</li>
+                                    <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">"zero"</code>: Fill with zeros for numeric columns and empty string for categorical</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">columns : list or None, default=None</code>
+                                <div class="mt-1">List of column names to process. If None, processes all columns.</div>
+                            </li>
+                        </ul>
+                        
+                        <h5 class="font-bold mb-2">Returns:</h5>
+                        <p class="mb-6"><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">pandas.DataFrame</code> - A DataFrame with missing values filled according to the strategy.</p>
+                        
+                        <div class="mb-6 px-4 py-3 border-l-4 border-amber-400 bg-amber-50 dark:bg-amber-900/20 rounded">
+                            <div class="font-bold">Example:</div>
+                            <pre class="mt-2 text-sm"><code>import pandas as pd
+from prepropy import handle_nulls
+
+# Fill only the age column with median
+df_processed = handle_nulls(df, strategy="median", columns=["age"])</code></pre>
+                        </div>
+                    </div>
+                    
+                    <!-- DupliChecker Tab -->
+                    <div class="api-tab-content hidden" id="duplichecker-tab">
+                        <div class="mb-10">
+                            <h4 class="text-xl font-bold mb-4">drop_duplicates(df, subset=None, keep='first')</h4>
+                            <p class="mb-4">Remove duplicate rows from a DataFrame with configurable options.</p>
+                            
+                            <h5 class="font-bold mt-6 mb-2">Parameters:</h5>
+                            <ul class="mb-6 space-y-4">
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">df : pandas.DataFrame</code>
+                                    <div class="mt-1">The DataFrame to remove duplicates from.</div>
+                                </li>
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">subset : str or list of str, default None</code>
+                                    <div class="mt-1">Column(s) to consider for identifying duplicates. If None, all columns are used.</div>
+                                </li>
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">keep : {'first', 'last', False}, default 'first'</code>
+                                    <div class="mt-1">Determines which duplicates to keep:</div>
+                                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'first'</code>: Keep the first occurrence of duplicates</li>
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'last'</code>: Keep the last occurrence of duplicates</li>
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">False</code>: Drop all duplicates</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
+                            <h5 class="font-bold mb-2">Returns:</h5>
+                            <p><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">pandas.DataFrame</code> - DataFrame with duplicates removed.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">get_duplicate_stats(df, subset=None)</h4>
+                            <p class="mb-4">Get statistics about duplicate records in a DataFrame.</p>
+                            
+                            <h5 class="font-bold mt-6 mb-2">Parameters:</h5>
+                            <ul class="mb-6 space-y-4">
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">df : pandas.DataFrame</code>
+                                    <div class="mt-1">The DataFrame to analyze for duplicates.</div>
+                                </li>
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">subset : str or list of str, default None</code>
+                                    <div class="mt-1">Column(s) to consider for identifying duplicates. If None, all columns are used.</div>
+                                </li>
+                            </ul>
+                            
+                            <h5 class="font-bold mb-2">Returns:</h5>
+                            <p><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">dict</code> - Dictionary containing duplicate statistics:</p>
+                            <ul class="list-disc pl-6 mt-2">
+                                <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'duplicate_count'</code>: Number of duplicate records</li>
+                                <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'duplicate_percent'</code>: Percentage of records that are duplicates</li>
+                                <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'unique_count'</code>: Number of unique records</li>
+                                <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'total_count'</code>: Total number of records</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- ScaleNPipe Tab -->
+                    <div class="api-tab-content hidden" id="scalenpipe-tab">
+                        <div class="mb-10">
+                            <h4 class="text-xl font-bold mb-4">scale_pipeline(model, scaler="standard")</h4>
+                            <p class="mb-4">Create a scikit-learn pipeline with the chosen scaler followed by the user-provided model.</p>
+                            
+                            <h5 class="font-bold mt-6 mb-2">Parameters:</h5>
+                            <ul class="mb-6 space-y-4">
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">model : estimator object</code>
+                                    <div class="mt-1">The scikit-learn estimator to use after scaling.</div>
+                                </li>
+                                <li>
+                                    <code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">scaler : {'standard', 'minmax', 'robust'}, default='standard'</code>
+                                    <div class="mt-1">Type of scaler to use:</div>
+                                    <ul class="list-disc pl-6 mt-2 space-y-1">
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'standard'</code>: StandardScaler (mean=0, std=1)</li>
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'minmax'</code>: MinMaxScaler (range 0-1)</li>
+                                        <li><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">'robust'</code>: RobustScaler (uses median and quantiles, robust to outliers)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            
+                            <h5 class="font-bold mb-2">Returns:</h5>
+                            <p><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">sklearn.pipeline.Pipeline</code> - A scikit-learn Pipeline with the chosen scaler and model.</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">get_available_scalers()</h4>
+                            <p class="mb-4">Get information about available scalers in the module.</p>
+                            
+                            <h5 class="font-bold mb-2">Returns:</h5>
+                            <p><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">dict</code> - Dictionary with scaler names as keys and their descriptions as values.</p>
+                            
+                            <div class="mb-6 px-4 py-3 border-l-4 border-purple-400 bg-purple-50 dark:bg-purple-900/20 rounded">
+                                <div class="font-bold">Example:</div>
+                                <pre class="mt-2 text-sm"><code>from prepropy import get_available_scalers
+
+scalers = get_available_scalers()
+print(scalers)
+# Output: 
+# {
+#   'standard': 'StandardScaler: Standardize features by removing the mean and scaling to unit variance',
+#   'minmax': 'MinMaxScaler: Scale features to a given range, default 0-1',
+#   'robust': 'RobustScaler: Scale features using statistics that are robust to outliers'
+# }</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Command Line Interface -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-bold mb-6">Command Line Interface</h3>
+                <p class="mb-6">PreProPy provides a command-line interface for quick data processing:</p>
+                
+                <div class="mb-6 bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto">
+                    <pre class="language-bash"><code># Handle missing values
+prepropy nulls input.csv output.csv --strategy auto
+
+# Handle duplicates
+prepropy dups input.csv output.csv --subset col1,col2 --keep first
+
+# Get information about available scalers
+prepropy scale --list-scalers</code></pre>
+                </div>
+                
+                <h4 class="text-xl font-bold mb-4">Command Reference</h4>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white dark:bg-transparent rounded-lg overflow-hidden border dark:border-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="py-3 px-4 text-left">Command</th>
+                                <th class="py-3 px-4 text-left">Description</th>
+                                <th class="py-3 px-4 text-left">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr>
+                                <td class="py-3 px-4"><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">prepropy nulls</code></td>
+                                <td class="py-3 px-4">Handle missing values in CSV files</td>
+                                <td class="py-3 px-4"><code>--strategy</code>: auto, mean, median, mode, zero</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4"><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">prepropy dups</code></td>
+                                <td class="py-3 px-4">Handle duplicate records in CSV files</td>
+                                <td class="py-3 px-4">
+                                    <code>--subset</code>: columns to consider (comma-separated)<br>
+                                    <code>--keep</code>: first, last, none<br>
+                                    <code>--stats-only</code>: Only show statistics
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4"><code class="bg-gray-100 dark:bg-gray-900 px-1.5 py-0.5 rounded text-sm">prepropy scale</code></td>
+                                <td class="py-3 px-4">Scale features in CSV files</td>
+                                <td class="py-3 px-4">
+                                    <code>--list-scalers</code>: Show available scalers<br>
+                                    <code>--scaler</code>: standard, minmax, robust
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="mb-24">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                    <i class="fas fa-code text-green-600 dark:text-green-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold">Examples</h2>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-bold mb-6">Complete Workflow Example</h3>
+                
+                <p class="mb-6">Below is a complete example that shows how to use all three components of PreProPy in a machine learning workflow:</p>
+                
+                <div class="bg-gray-50 dark:bg-gray-900 p-4 rounded-xl overflow-x-auto">
+                    <pre class="language-python"><code>import pandas as pd
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+
+# Import PreProPy
+from prepropy import handle_nulls, drop_duplicates, scale_pipeline
+
+# Step 1: Load raw data
+raw_df = pd.read_csv('sample_data.csv')
+print(f"Original data shape: {raw_df.shape}")
+
+# Step 2: Check for duplicates
+dup_stats = get_duplicate_stats(raw_df)
+print(f"\nDuplicate statistics:")
+print(f"- Total records: {dup_stats['total_count']}")
+print(f"- Unique records: {dup_stats['unique_count']}")
+print(f"- Duplicate records: {dup_stats['duplicate_count']} ({dup_stats['duplicate_percent']:.2f}%)")
+
+# Step 3: Remove duplicates if necessary
+if dup_stats['duplicate_count'] > 0:
+    clean_df = drop_duplicates(raw_df)
+else:
+    clean_df = raw_df.copy()
+
+# Step 4: Handle missing values
+filled_df = handle_nulls(clean_df, strategy="auto")
+missing_before = clean_df.isnull().sum().sum()
+missing_after = filled_df.isnull().sum().sum()
+print(f"\nMissing values filled: {missing_before - missing_after}")
+
+# Step 5: Prepare features and target for modeling
+features = ['age', 'income', 'years_experience']
+X = filled_df[features]
+y = (filled_df['satisfaction'] >= 7).astype(int)  # Binary classification target
+
+# Step 6: Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Step 7: Create and train a pipeline with scaling
+model = LogisticRegression(max_iter=1000, random_state=42)
+pipeline = scale_pipeline(model, scaler="standard")
+pipeline.fit(X_train, y_train)
+
+# Step 8: Evaluate the model
+y_pred = pipeline.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\nFinal model accuracy: {accuracy:.4f}")</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-10 border-t border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">PreProPy</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        A comprehensive data preprocessing toolkit for Python.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#overview" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Overview</a></li>
+                        <li><a href="#installation" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Installation</a></li>
+                        <li><a href="#features" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Features</a></li>
+                        <li><a href="#documentation" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Documentation</a></li>
+                        <li><a href="#examples" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Examples</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://github.com/yourusername/prepropy" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">GitHub Repository</a></li>
+                        <li><a href="https://pypi.org/project/prepropy/" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">PyPI Package</a></li>
+                        <li><a href="https://github.com/yourusername/prepropy/issues" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Issue Tracker</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 dark:text-gray-400 text-sm">
+                    &copy; 2025 PreProPy Team. All rights reserved.
+                </p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="https://github.com/yourusername/prepropy" target="_blank" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>    <!-- JavaScript for interactivity -->
+    <script src="js/script.js"></script>
+    <script>
+        // Dark mode toggle
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use the system preference
+        const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        // Initial theme setup
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Theme toggle handler
+        themeToggleButton.addEventListener('click', function() {
+            let theme;
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                theme = 'dark';
+            }
+            // Save the preference
+            localStorage.setItem('theme', theme);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // API tabs functionality
+        const apiTabButtons = document.querySelectorAll('.api-tab-button');
+        const apiTabContents = document.querySelectorAll('.api-tab-content');
+        
+        apiTabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.dataset.tab;
+                
+                // Update buttons
+                apiTabButtons.forEach(btn => {
+                    if (btn.dataset.tab === tabName) {
+                        btn.classList.add('border-primary-600', 'text-primary-600', 'dark:text-primary-400', 'dark:border-primary-400');
+                        btn.classList.remove('border-transparent', 'hover:border-gray-300', 'hover:text-gray-600', 'dark:hover:text-gray-300');
+                    } else {
+                        btn.classList.remove('border-primary-600', 'text-primary-600', 'dark:text-primary-400', 'dark:border-primary-400');
+                        btn.classList.add('border-transparent', 'hover:border-gray-300', 'hover:text-gray-600', 'dark:hover:text-gray-300');
+                    }
+                });
+                
+                // Show the selected tab content
+                apiTabContents.forEach(content => {
+                    if (content.id === `${tabName}-tab`) {
+                        content.classList.remove('hidden');
+                        content.classList.add('block');
+                    } else {
+                        content.classList.add('hidden');
+                        content.classList.remove('block');
+                    }
+                });
+            });
+        });
+        
+        // Initialize functions from external script if needed
+        if (typeof initScrollAnimations === 'function') {
+            initScrollAnimations();
+        }
+        
+        if (typeof initCodeCopy === 'function') {
+            initCodeCopy();
+        }
+    </script>
+</body>
+</html>
